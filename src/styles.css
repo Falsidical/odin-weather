@@ -6,6 +6,71 @@
 
 body {
   background-color: #222;
+  background: linear-gradient(in oklch 40deg, #2c2c86 20%, #5f5fee 70%, #ffffff);
+  min-height: 100vh;
   color: #eee;
-  font-family: system-ui, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-family: 'Zain', sans-serif;
+  line-height: 0.7;
+  display: grid;
+  place-content: center;
+}
+
+#weather-app {
+  text-align: center;
+  padding: 32px;
+  border-radius: 12px;
+  backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.5);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+h1 {
+  font-size: 64px;
+}
+
+h2 {
+  font-size: 42px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+input,
+button,
+select {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  padding: 4px 8px;
+}
+
+input {
+  border-bottom: 1px solid;
+}
+
+button {
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.275);
+  }
+}
+
+input:focus,
+select:focus {
+  outline: none;
+}
+
+select option {
+  background-color: #2c2c86;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
