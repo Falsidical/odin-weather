@@ -15,15 +15,26 @@ body {
   place-content: center;
 }
 
+.night {
+  background: linear-gradient(in oklch 30deg, #11112b 40%, #080818);
+}
+
 #weather-app {
   text-align: center;
   padding: 32px;
+  width: 400px;
   border-radius: 12px;
   backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(17, 25, 40, 0.5);
   display: grid;
   gap: 12px;
   grid-template-columns: 1fr;
+}
+
+img {
+  width: 220px;
+  border: none;
+  margin: auto;
 }
 
 h1 {
@@ -62,7 +73,12 @@ button {
 
 input:focus,
 select:focus {
+  background-color: transparent;
   outline: none;
+}
+
+input:is(:-webkit-autofill, :autofill) {
+  background-color: cyan;
 }
 
 select option {
@@ -73,6 +89,14 @@ form {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.description {
+  margin-bottom: 16px;
+}
+
+.feels {
+  font-size: 24px;
 }
 
 .overlay {

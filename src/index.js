@@ -1,5 +1,6 @@
 import { getWeatherData } from './weatherApi.js';
 import './styles.css';
+import { getIconUrl } from './icons.js';
 
 const form = document.querySelector('form');
 const desc = document.querySelector('.description');
@@ -7,6 +8,8 @@ const temp = document.querySelector('h1');
 const city = document.querySelector('h2');
 const country = document.querySelector('h3');
 const overlay = document.querySelector('.overlay');
+const icon = document.querySelector('img');
+const feels = document.querySelector('.feels');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -30,6 +33,22 @@ async function displayWeather(location, units) {
     city.innerText = address[0];
     desc.innerText = description;
     country.innerText = address[address.length - 1];
+    feels.innerText = `Feels like ${currentConditions.feelslike}°`;
+
+    const time = currentConditions.datetime;
+    const hour = time.split(':')[0];
+    console.log(hour);
+
+    if (hour >= 20 || hour < 6) {
+      console.log('night');
+      document.body.classList.add('night');
+    } else {
+      document.body.classList.remove('night');
+      console.log('day');
+    }
+
+    icon.src = getIconUrl(currentConditions.icon);
+    icon.alt = currentConditions.icon;
   }
 
   overlay.style.display = 'none';
